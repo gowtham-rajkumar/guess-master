@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guess the number from 1 to 10</h1>
+    <input type="number" id="ip">
+    <button onclick="check()">Check</button>
+    <p id="result">You are right or wrong:</p>
+    <h2 id="score">Score: 10</h2>
+
+    <script>
+        var score=10
+
+        let random_no=(Math.floor((Math.random())*10))+1  //Random no. from 1 to 10
+        console.log(random_no)
+        console.log(typeof(random_no))
+
+        let ip_element=document.getElementById("ip")
+
+        let result_element=document.getElementById("result")
+
+        let score_element=document.getElementById("score")
+
+        function check()
+        {   
+
+            let user_input=ip_element.value
+
+            console.log(user_input)
+            console.log(typeof(user_input))
+             
+            /* Here random_no is 'number data type' and user_input is 'string data type', Our goal is to check the value of random_no and user_input
+            is same or not (it is not necessary to check the data type of both), So we prefer '==' instead of '===' */
+
+            // if(user_input===random_no)  //error occurs
+            if(user_input==random_no)      
+            {
+                result_element.textContent="You are Right or Wrong: Right"
+                alert("You are Great")
+            }
+            else
+            {
+                result_element.textContent="You are Right or Wrong: Wrong"
+                score--
+                score_element.textContent="Score: "+score
+            }
+
+        }
+
+    </script>
+</body>
+</html>
